@@ -1,3 +1,5 @@
 docker build -t python-interactive .
 docker run -it python-interactive
 docker start -i 'container-id'
+
+--rm container exit olunca otomatik islinmesi için
