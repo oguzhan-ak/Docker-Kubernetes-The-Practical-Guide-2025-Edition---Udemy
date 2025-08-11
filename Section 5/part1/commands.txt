@@ -1,0 +1,8 @@
+docker network create goals-net
+docker run -d --name mongodb -v data:/data/db --rm --network goals-net -e MONGO_INITDB_ROOT_USERNAME=max -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
+// backend klasöründe çalıştır
+docker build -t goals-backend-node .
+docker run -d --name goals-backend -v logs:/app/logs -v "%cd%":/app -v /app/node_modules --rm --network goals-net -p 8080:8080 -e MONGODB_USERNAME=max -e MONGODB_PASSWORD=secret  goals-backend-node
+// frontend klasöründe çalıştır
+docker build -t goals-frontend-node .
+docker run -d --name goals-frontend --rm --network goals-net -p 3000:3000 -v "%cd%"/src:/app/src goals-frontend-node
