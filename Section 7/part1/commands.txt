@@ -1,0 +1,3 @@
+docker run -it -v "%cd%":/app node-util init
+docker run -it -v "%cd%":/app my-npm init
+docker run -it -v "%cd%":/app my-npm install
