@@ -1,0 +1,9 @@
+docker build -t node-dep-example .
+docker run -d --rm --name node-dep -p 8080:8080 node-dep-example
+
+ec2 ya bağlanmak için powershell yönetici olarak çalıştırılır
+
+takeown /f "oguzhanak.pem"
+icacls "oguzhanak.pem" /inheritance:r
+icacls "oguzhanak.pem" /grant:r "forte\mustafa.karatas:F"
+ssh -i "oguzhanak.pem" ec2-user@ec2-51-20-9-10.eu-north-1.compute.amazonaws.com
