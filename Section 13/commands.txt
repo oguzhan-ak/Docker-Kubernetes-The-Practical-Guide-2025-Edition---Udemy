@@ -1,0 +1,2 @@
+kubectl apply -f=environment.yaml -f=host-pv.yaml -f=host-pvc.yaml -f=service.yaml -f=deployment.yaml
+localhost:3000
